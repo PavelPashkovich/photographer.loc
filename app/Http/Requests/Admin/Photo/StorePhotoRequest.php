@@ -40,6 +40,10 @@ class StorePhotoRequest extends FormRequest
                 'required',
                 'string'
             ],
+            'user_id' => [
+                'required',
+                'exists:users,id'
+            ]
         ];
     }
 

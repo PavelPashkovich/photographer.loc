@@ -42,6 +42,7 @@
                                     <h6 class="card-text text-white pb-2 pt-1">{{ $photo->category->name }}</h6>
                                     <div class="d-flex justify-content-between">
                                         <h6 href="#" class="text-white">{{ $photo->created_at }}</h6>
+                                        <h6 href="#" class="text-white"> by {{ $photo->user->name }}</h6>
                                         <div>
                                             <i class="far fa-comments mr-2"> 5 </i>
                                             <i class="far fa-heart"> 3 </i>
@@ -52,6 +53,9 @@
                         </div>
                         @endforeach
                     </div>
+                </div>
+                <div class="m-auto">
+                    {{ $photos->links() }}
                 </div>
             </div>
         </div><!-- /.container-fluid -->

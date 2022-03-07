@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Photo\StorePhotoRequest;
 use App\Http\Requests\Admin\Photo\UpdatePhotoRequest;
 use App\Models\Category;
 use App\Models\Photo;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
@@ -18,7 +19,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::all();
+        $photos = Photo::query()->paginate(9);
         return view('admin.photo.index', ['photos' => $photos]);
     }
 
@@ -55,7 +56,8 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        return view('admin.photo.show', ['photo' => $photo]);
+        $users = User::all();
+        return view('admin.photo.show', ['photo' => $photo, 'users' => $users]);
     }
 
     /**

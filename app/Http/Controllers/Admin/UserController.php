@@ -3,8 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\User\StoreUserRequest;
+use App\Http\Requests\Admin\User\UpdateUserRequest;
+use App\Models\City;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class UserController extends Controller
 {
@@ -15,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::query()->paginate(3);
         return view('admin.user.index', ['users' => $users]);
     }
 
@@ -26,7 +33,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $cities = City::all();
+        $roles = Role::all();
+        return view('admin.user.create', ['cities' => $cities, 'roles' => $roles]);
     }
 
     /**
@@ -35,9 +44,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $data = $request->validated();
+        if (isset($data['avatar']) && !empty($data['avatar'])) {
+            $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
+        }
+        $data['password'] = Hash::make($data['password']);
+        User::query()->create($data);
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -46,7 +61,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
@@ -57,9 +72,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $cities = City::all();
+        $roles = Role::all();
+        return view('admin.user.edit', ['user' => $user, 'cities' => $cities, 'roles' => $roles]);
     }
 
     /**
@@ -69,9 +86,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        if (isset($data['avatar']) && !empty($data['avatar'])) {
+            $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
+        }
+        $user->update($data);
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -80,8 +102,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('admin.user.index');
     }
 }

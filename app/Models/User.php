@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,8 +20,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'avatar',
         'email',
+        'address',
+        'phone',
         'password',
+        'city_id',
+        'role_id',
     ];
 
     /**
@@ -41,4 +47,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function city() {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function photos() {
+        return $this->hasMany(Photo::class, 'user_id', 'id');
+    }
+
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    public function likedPhotos() {
+        return $this->belongsToMany(Photo::class, 'photo_user_likes', 'user_id', 'photo_id');
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }

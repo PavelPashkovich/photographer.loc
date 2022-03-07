@@ -55,7 +55,7 @@
                     <svg class="svg-icon svg-icon-heavy svg-icon-sm text-dark">
                         <use xlink:href="#menu-hamburger-1"> </use>
                     </svg>
-                </button><a class="navbar-brand" href="index.html"><img src="img/logo.svg" alt="" width="50"></a>
+                </button><a class="navbar-brand" href="index.html"><img src="{{ asset('minimal-theme/img/logo.svg') }}" alt="" width="50"></a>
             </nav>
         </header>
     </div>
@@ -102,7 +102,7 @@
                             <ul class="list-unstyled mb-0">
                                 <li><a class="reset-anchor" href="#!">
                                         <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="img/news-1.jpg" alt="Design is all" width="50"></div>
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-1.jpg') }}" alt="Design is all" width="50"></div>
                                             <div class="ms-3">
                                                 <p class="text-white mb-0">Design is all</p>
                                                 <p class="small mb-1"></p>
@@ -111,7 +111,7 @@
                                         </div></a></li>
                                 <li><a class="reset-anchor" href="#!">
                                         <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="img/news-2.jpg" alt="Power is art" width="50"></div>
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-2.jpg') }}" alt="Power is art" width="50"></div>
                                             <div class="ms-3">
                                                 <p class="text-white mb-0">Power is art</p>
                                                 <p class="small mb-1">23 Dec 2019</p>

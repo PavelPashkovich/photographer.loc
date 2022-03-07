@@ -38,9 +38,9 @@
             <div class="card card-widget">
                 <div class="card-header">
                     <div class="user-block">
-                        <img class="img-circle" src="{{ asset('adminLTE/dist/img/user1-128x128.jpg') }}" alt="User Image">
-                        <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                        <span class="description">Shared publicly - 7:30 PM Today</span>
+                        <img class="img-circle" src="{{ asset('storage/'.$photo->user->avatar) }}" alt="User Image">
+                        <span class="username"><a href="#">{{ $photo->user->name }}</a></span>
+                        <span class="description">Shared publicly - {{ $photo->created_at }}</span>
                     </div>
                     <!-- /.user-block -->
                     <div class="card-tools">

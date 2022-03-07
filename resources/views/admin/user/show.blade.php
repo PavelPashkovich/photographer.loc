@@ -8,9 +8,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <div class="d-flex justify-content-start">
-                        <h1 class="m-0 mr-2">{{ $photo->name }}</h1>
-                        <a href="{{ route('admin.photo.edit', $photo->id) }}" class="px-2" title="Edit"><i class="far fa-edit"></i></a>
-                        <form action="{{ route('admin.photo.destroy', $photo->id) }}" method="post">
+                        <h1 class="m-0 mr-2">{{ $user->name }}</h1>
+                        <a href="{{ route('admin.user.edit', $user->id) }}" class="px-2" title="Edit"><i class="far fa-edit"></i></a>
+                        <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="border-0 bg-transparent" title="Delete">
@@ -22,8 +22,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.photo.index') }}">Photos</a></li>
-                        <li class="breadcrumb-item active">{{ $photo->name }}</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">Users</a></li>
+                        <li class="breadcrumb-item active">{{ $user->name }}</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -32,42 +32,49 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="row">
-        <div class="col-md-7">
-            <!-- Box Comment -->
-            <div class="card card-widget">
-                <div class="card-header">
-                    <div class="user-block">
-                        <img class="img-circle" src="{{ asset('adminLTE/dist/img/user1-128x128.jpg') }}" alt="User Image">
-                        <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                        <span class="description">Shared publicly - 7:30 PM Today</span>
-                    </div>
-                    <!-- /.user-block -->
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" title="Mark as read">
-                            <i class="far fa-circle"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <!-- /.card-tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <img class="img-fluid pad" src="{{ asset('storage/'.$photo->photo) }}" alt="Photo">
+    <div class="card-body pb-0">
+        <div class="row">
 
-                    <p>I took this photo this morning. What do you guys think?</p>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                    <span class="float-right text-muted">127 likes - 3 comments</span>
+                <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                    <div class="card bg-light d-flex flex-fill">
+                        <div class="card-header text-muted border-bottom-0">
+
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="lead"><b>{{$user->name}}</b></h2>
+                                    <p class="text-muted text-sm">({{ $user->role->name }})</p>
+                                    <ul class="ml-4 mb-0 fa-ul text-muted">
+                                        <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> City: {{ $user->city->name }}</li>
+                                        <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:{{ $user->phone }}</li>
+                                        <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-mail-bulk"></i></span> E-mail: {{ $user->email }}</li>
+                                    </ul>
+                                </div>
+                                <div class="col-5 text-center">
+                                    @if(isset($user->avatar) && !empty($user->avatar))
+                                        <img src="{{ asset('storage/'.$user->avatar) }}" alt="user-avatar" class="img-circle img-fluid w-75">
+                                    @else
+                                        <img src="{{ asset('storage/noavatar.jpg') }}" alt="user-avatar" class="img-circle img-fluid w-75">
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-right d-flex justify-content-end">
+                                <a href="#" class="btn btn-sm btn-primary mr-2"><i class="fas fa-user"></i> View Profile </a>
+                                <a href="#" class="btn btn-sm bg-teal mr-2"><i class="fas fa-comments"></i></a>
+                                <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-sm bg-cyan mr-2"><i class="far fa-edit" title="Edit"></i></a>
+                                <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" title="Delete"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+
         </div>
     </div>
     <!-- /.content -->

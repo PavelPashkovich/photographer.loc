@@ -39,7 +39,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
-        Category::query()->create($data);
+        Category::create($data);
         return redirect()->route('admin.category.index');
     }
 

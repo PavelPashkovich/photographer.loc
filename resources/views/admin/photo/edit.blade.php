@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Photos</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.photo.index') }}">Photos</a></li>
                         <li class="breadcrumb-item active">{{ $photo->name }}</li>
                     </ol>
                 </div><!-- /.col -->
@@ -30,8 +30,8 @@
                     <div class="card card-widget">
                         <div class="card-header">
                             <div class="user-block">
-                                <img class="img-circle" src="{{ asset('adminLTE/dist/img/user1-128x128.jpg') }}" alt="User Image">
-                                <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                                <img class="img-circle" src="{{ asset('storage/'.$photo->user->avatar) }}" alt="User Image">
+                                <span class="username"><a href="#">{{ $photo->user->name }}</a></span>
                                 <span class="description">Shared publicly - 7:30 PM Today</span>
                             </div>
                             <!-- /.user-block -->
@@ -110,8 +110,8 @@
                     <div class="card card-widget">
                         <div class="card-header">
                             <div class="user-block">
-                                <img class="img-circle" src="{{ asset('adminLTE/dist/img/user1-128x128.jpg') }}" alt="User Image">
-                                <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                                <img class="img-circle" src="{{ asset('storage/'.$photo->user->avatar) }}" alt="User Image">
+                                <span class="username"><a href="#">{{ $photo->user->name }}</a></span>
                                 <span class="description">Shared publicly - 7:30 PM Today</span>
                             </div>
                             <!-- /.user-block -->
@@ -133,6 +133,7 @@
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group">
+                                    <label>Photo name</label>
                                     <input type="text" class="form-control" name="name" placeholder="Photo name" value="{{ $photo->name }}">
                                     @error('name')
                                     <div class="text-danger">{{ $message }}</div>
@@ -155,7 +156,7 @@
                                     <select name="category_id" class="form-control">
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}"
-                                                    @if($category->id == old('category_id'))
+                                                    @if($category->id == $photo->category->id)
                                                     selected
                                             @else
                                                 @endif

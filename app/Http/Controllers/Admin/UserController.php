@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::query()->paginate(3);
+        $users = User::all()->except(auth()->user()->id);
         return view('admin.user.index', ['users' => $users]);
     }
 

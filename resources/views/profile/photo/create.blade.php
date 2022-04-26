@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('profile.layouts.main')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,8 +11,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Main</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.photo.index') }}">Photos</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main profile</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.photo.index') }}">Photos</a></li>
                         <li class="breadcrumb-item active">New photo</li>
                     </ol>
                 </div><!-- /.col -->

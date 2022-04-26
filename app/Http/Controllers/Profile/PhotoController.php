@@ -18,7 +18,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::query()->where('user_id', '=', auth()->user()->id)->paginate(9);
+        $photos = auth()->user()->photos()->paginate(9);
         return view('profile.photo.index', ['photos' => $photos]);
     }
 
@@ -55,7 +55,8 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        return view('profile.photo.show', ['photo' => $photo]);
+        $comments = $photo->comments;
+        return view('profile.photo.show', ['photo' => $photo, 'comments' => $comments]);
     }
 
     /**
@@ -66,8 +67,9 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
+        $comments = $photo->comments;
         $categories = Category::all();
-        return view('profile.photo.edit', ['photo' => $photo, 'categories' => $categories]);
+        return view('profile.photo.edit', ['photo' => $photo, 'categories' => $categories, 'comments' => $comments]);
     }
 
     /**

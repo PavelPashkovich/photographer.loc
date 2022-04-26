@@ -50,7 +50,7 @@
                                                 <p class="text-muted text-sm">({{ $user->role->name }})</p>
                                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                                     <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> City: {{ $user->city->name }}</li>
-                                                    <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:{{ $user->phone }}</li>
+                                                    <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone: {{ $user->phone }}</li>
                                                     <li class="small mb-2"><span class="fa-li"><i class="fas fa-lg fa-mail-bulk"></i></span> E-mail: {{ $user->email }}</li>
                                                 </ul>
                                             </div>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right d-flex justify-content-end">
-                                            <a href="#" class="btn btn-sm btn-primary mr-2"><i class="fas fa-user"></i> View Profile </a>
+                                            <a href="{{ route('main.user.show', $user) }}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-user"></i> View Profile </a>
                                             <a href="#" class="btn btn-sm bg-teal mr-2"><i class="fas fa-comments"></i></a>
                                             <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-sm bg-cyan mr-2"><i class="far fa-edit" title="Edit"></i></a>
                                             <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">
@@ -83,9 +83,7 @@
 
 
                 <!-- /.card-body -->
-                    <div class="m-auto">
-                        {{ $users->links() }}
-                    </div>
+
                     <!-- /.card-footer -->
                 </div>
                 <!-- /.card -->

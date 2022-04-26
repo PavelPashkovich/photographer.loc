@@ -11,7 +11,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main profile</a></li>
                         <li class="breadcrumb-item active">Photos</li>
                     </ol>
                 </div><!-- /.col -->
@@ -41,10 +41,10 @@
                                     <a href="{{ route('profile.photo.show', $photo->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
                                     <h6 class="card-text text-white pb-2 pt-1">{{ $photo->category->name }}</h6>
                                     <div class="d-flex justify-content-between">
-                                        <h6 href="#" class="text-white">{{ $photo->created_at }}</h6>
+                                        <h6 class="text-white">{{ $photo->created_at }}</h6>
                                         <div>
-                                            <i class="far fa-comments mr-2"> 5 </i>
-                                            <i class="far fa-heart"> 3 </i>
+                                            <i class="far fa-comments mr-2"> {{ $photo->comments->count() }} </i>
+                                            <i class="far fa-heart"> {{ $photo->likedUsers->count() }} </i>
                                         </div>
                                     </div>
                                 </div>

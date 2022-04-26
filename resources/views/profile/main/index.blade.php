@@ -7,11 +7,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Main</h1>
+                    <h1 class="m-0">Main profile</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Main</li>
+                        <li class="breadcrumb-item active">Main profile</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -29,14 +29,14 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>11</h3>
+                            <h3>{{ $photosCount }}</h3>
 
                             <p>Photos</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-images"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('profile.photo.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -44,14 +44,14 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>11</h3>
+                            <h3>{{ $likesCount }}</h3>
 
                             <p>Liked photos</p>
                         </div>
                         <div class="icon">
                             <i class="fas fas fa-heart"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('profile.liked-photo.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -59,14 +59,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>11</h3>
+                            <h3>{{ $commentsCount }}</h3>
 
                             <p>Comments</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-comments"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('profile.comment.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

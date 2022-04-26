@@ -11,7 +11,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main profile</a></li>
                         <li class="breadcrumb-item active">Liked photos</li>
                     </ol>
                 </div><!-- /.col -->

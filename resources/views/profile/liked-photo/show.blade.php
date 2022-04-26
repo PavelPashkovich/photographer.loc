@@ -20,7 +20,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main profile</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('profile.liked-photo.index') }}">Liked photos</a></li>
                         <li class="breadcrumb-item active">{{ $likedPhoto->name }}</li>
                     </ol>
@@ -38,32 +38,44 @@
                 <div class="card-header">
                     <div class="user-block">
                         <img class="img-circle" src="{{ asset('storage/'.$likedPhoto->user->avatar) }}" alt="User Image">
-                        <span class="username"><a href="#">{{ $likedPhoto->user->name }}</a></span>
+                        <span class="username text-danger">{{ $likedPhoto->user->name }}</span>
                         <span class="description">Shared publicly - {{ $likedPhoto->created_at }}</span>
                     </div>
                     <!-- /.user-block -->
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" title="Mark as read">
-                            <i class="far fa-circle"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <div class="text-black-50 mr-2">
+                            <i class="fas fa-camera"></i>
+                        </div>
                     </div>
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <img class="img-fluid pad" src="{{ asset('storage/'.$likedPhoto->photo) }}" alt="Photo">
-
-                    <p>I took this photo this morning. What do you guys think?</p>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                    <span class="float-right text-muted">127 likes - 3 comments</span>
+                    <p></p>
+                    <span class="float-right text-muted">
+                        <div class="d-flex justify-content-between">
+                            <div class="mr-2"><i class="far fa-heart"></i> {{ $likedPhoto->likedUsers->count() }}</div>
+                            <div><i class="far fa-comments"></i> {{ $likedPhoto->comments->count() }}</div>
+                        </div>
+                    </span>
                 </div>
+                @foreach($comments as $comment)
+                    <div class="card-footer card-comments">
+                        <div class="card-comment">
+                            <!-- User image -->
+                            <img class="img-circle img-sm" src="{{ asset('storage/'.$comment->user->avatar) }}" alt="User Image">
+
+                            <div class="comment-text">
+                                <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>
+                                {{ $comment->comment }}
+                            </div>
+                            <!-- /.comment-text -->
+                        </div>
+                        <hr>
+                        <!-- /.card-comment -->
+                    </div>
+                @endforeach
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->

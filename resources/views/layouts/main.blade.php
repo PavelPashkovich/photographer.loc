@@ -27,23 +27,45 @@
                     <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.index') }}">Home</a>
                 </li>
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="text.html">About</a>
+                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.category.index') }}">Categories</a>
                 </li>
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="detail.html">Detail</a>
+                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.user.index') }}">Photographers</a>
+                </li>
+                <li class="mb-2 pb-1">
+                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.city.index') }}">Cities</a>
                 </li>
             </ul>
         </div>
-        <div class="px-4 py-3">
-            <ul class="list-inline list-social mb-3">
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-dribbble"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>
-            </ul>
+        <div>
+            <div class="sidebar-menu-holder flex-grow-1">
+                <ul class="sidebar-menu list-unstyled">
+                    <li class="mb-2 pb-1">
+                        @auth()
+                            @if(auth()->user()->role->name == 'Admin')
+                                <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('admin.main.index') }}">Admin</a>
+                            @else
+                                <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('profile.main.index') }}">Profile</a>
+                            @endif
+                        @endauth
+                        @guest()
+                            <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('profile.main.index') }}">Login</a>
+                        @endguest
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-3">
+                <ul class="list-inline list-social mb-3">
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-dribbble"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
         </div>
+
     </div>
 </div>
 <div class="page-holder">
@@ -61,69 +83,6 @@
     </div>
     @yield('content')
     <footer class="text-muted" style="background: #0d0d0d">
-        <div class="container-fluid py-5">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="row gy-4">
-                        <div class="col-lg-4">
-                            <h2 class="h4 text-white mb-4">About me</h2>
-                            <p class="text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
-                            <ul class="list-unstyled text-sm mb-0 text-white">
-                                <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-globe-americas"></i>4274  Williams Avenue, California.</a></li>
-                                <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-mobile"></i>123-456-789</a></li>
-                                <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-envelope"></i>Jason@example.com</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4">
-                            <h2 class="h4 text-white mb-4">Follow me</h2>
-                            <ul class="list-inline">
-                                <div class="row text-white text-sm">
-                                    <div class="col-6">
-                                        <ul class="list-unstyled">
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-facebook-f"></i>Facebook</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-twitter"></i>Twitter</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-instagram"></i>Instagram</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-dribbble"></i>Dribbble</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-unstyled">
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-linkedin-in"></i>Linkedin</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-pinterest"></i>Pinterest</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-vimeo"></i>Vimeo</a></li>
-                                            <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-youtube"></i>Youtube</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4">
-                            <h2 class="h4 text-white mb-4">News</h2>
-                            <ul class="list-unstyled mb-0">
-                                <li><a class="reset-anchor" href="#!">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-1.jpg') }}" alt="Design is all" width="50"></div>
-                                            <div class="ms-3">
-                                                <p class="text-white mb-0">Design is all</p>
-                                                <p class="small mb-1"></p>
-                                                <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                                            </div>
-                                        </div></a></li>
-                                <li><a class="reset-anchor" href="#!">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-2.jpg') }}" alt="Power is art" width="50"></div>
-                                            <div class="ms-3">
-                                                <p class="text-white mb-0">Power is art</p>
-                                                <p class="small mb-1">23 Dec 2019</p>
-                                                <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                                            </div>
-                                        </div></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="bg-dark py-4">
             <div class="container-fluid">
                 <div class="row">

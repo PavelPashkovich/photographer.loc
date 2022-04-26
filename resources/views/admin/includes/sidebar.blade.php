@@ -13,8 +13,16 @@
         </div>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{ route('admin.main.index') }}" class="nav-link">
+                <a href="{{ route('main.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
+                    <p>
+                        Home Page
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.main.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-address-card"></i>
                     <p>
                         Main
                     </p>
@@ -57,6 +65,14 @@
                     <i class="nav-icon fas fa-user-tag"></i>
                     <p>
                         Roles
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.comment.index') }}" class="nav-link">
+                    <i class="nav-icon far fa-comments"></i>
+                    <p>
+                        Comments
                     </p>
                 </a>
             </li>

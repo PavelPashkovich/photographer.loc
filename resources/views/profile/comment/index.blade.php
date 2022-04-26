@@ -11,7 +11,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('profile.main.index') }}">Main profile</a></li>
                         <li class="breadcrumb-item active">Comments</li>
                     </ol>
                 </div><!-- /.col -->
@@ -30,9 +30,9 @@
                         @foreach($comments as $comment)
                         <div class="post clearfix">
                             <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="{{ asset('storage/'.auth()->user()->avatar) }}" alt="User Image">
+                                <img class="img-circle img-sm" src="{{ asset('storage/'.auth()->user()->avatar) }}" alt="User Image">
                                 <span class="username">
-                                <a href="#">{{ auth()->user()->name }}</a>
+                                <span class="text-danger">{{ auth()->user()->name }}</span>
                                 <form action="{{ route('profile.comment.destroy', $comment) }}" method="post">
                                     @method('DELETE')
                                     @csrf
@@ -40,7 +40,8 @@
                                 </form>
                           <a href="{{ route('profile.comment.edit', $comment) }}" class="float-right btn-tool" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                         </span>
-                                <span class="description">Your comment to photo <b>{{ $comment->photo->name }}</b> by <i>{{ $comment->photo->user->name }}</i> - 3 days ago</span>
+                                <span class="description">Your comment to photo <a href="{{ route('main.photo.index', $comment->photo->id) }}"><b>{{ $comment->photo->name }}</b></a> by <a
+                                        href="{{ route('main.user.show', $comment->photo->user->id) }}"><i>{{ $comment->photo->user->name }}</i></a> - {{ $comment->created_at }}</span>
                             </div>
                             <!-- /.user-block -->
                             <p>{{ $comment->comment }}</p>

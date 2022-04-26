@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,8 @@ class LikedPhotoController extends Controller
      */
     public function show(Photo $likedPhoto)
     {
-        return view('profile.liked-photo.show', ['likedPhoto' => $likedPhoto]);
+        $comments = $likedPhoto->comments;
+        return view('profile.liked-photo.show', ['likedPhoto' => $likedPhoto, 'comments' => $comments]);
     }
 
     /**

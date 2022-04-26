@@ -14,8 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', [\App\Http\Controllers\Main\IndexController::class, 'index'])->name('main.index');
+
+Route::prefix('/')->group(function () {
+    Route::get('', [\App\Http\Controllers\Main\IndexController::class, 'index'])->name('main.index');
+    Route::prefix('photo')->group(function () {
+        Route::get('{photo}', [\App\Http\Controllers\Main\Photo\IndexController::class, 'index'])->name('main.photo.index');
+        Route::post('{photo}/comment', [\App\Http\Controllers\Main\Photo\Comment\StoreController::class, 'store'])->name('photo.comment.store');
+        Route::post('{photo}/like', [\App\Http\Controllers\Main\Photo\Like\StoreController::class, 'store'])->name('photo.like.store');
+    });
+    Route::prefix('category')->group(function () {
+        Route::get('', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
+        Route::get('/{category}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
+    });
+    Route::prefix('user')->group(function () {
+        Route::get('', [\App\Http\Controllers\Main\User\IndexController::class, 'index'])->name('main.user.index');
+        Route::get('/{user}', [\App\Http\Controllers\Main\User\ShowController::class, 'show'])->name('main.user.show');
+        Route::post('message', [\App\Http\Controllers\Main\User\Message\StoreController::class, 'store'])->name('main.user.message.store');
+    });
+    Route::prefix('city')->group(function () {
+        Route::get('', [\App\Http\Controllers\Main\City\IndexController::class, 'index'])->name('main.city.index');
+        Route::get('/{city}', [\App\Http\Controllers\Main\City\ShowController::class, 'show'])->name('main.city.show');
+    });
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -26,16 +45,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         'user' => Admin\UserController::class,
         'city' => Admin\CityController::class,
         'role' => Admin\RoleController::class,
+        'comment' => Admin\CommentController::class,
     ]);
 });
 
 Route::middleware(['auth'])->prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Profile\IndexController::class, 'index'])->name('main.index');
-//    Route::get('comment', [\App\Http\Controllers\Profile\CommentController::class, 'index'])->name('comment.index');
     Route::resources([
         'photo' => Profile\PhotoController::class,
         'liked-photo' => Profile\LikedPhotoController::class,
         'comment' => Profile\CommentController::class,
+        'user' => Profile\UserController::class,
     ]);
 });
 
@@ -50,10 +70,11 @@ Route::middleware(['auth'])->prefix('profile')->name('profile.')->group(function
 
 
 
-Route::get('id', function () {
-    dd(auth()->user()->name);
+Route::get('email', function () {
+    $photo = \App\Models\Photo::query()->first();
+    return \Illuminate\Support\Facades\Mail::to('aaa@bbb.ccc')
+        ->send(new \App\Mail\SendPhotoCommentEmail($photo));
 });
-
 
 
 Route::get('test', function () {

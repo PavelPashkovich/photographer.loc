@@ -87,9 +87,9 @@
 
                         <h2 class="h3 my-4">Share</h2>
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link facebook" href="#!"><i class="fab me-2 fa-facebook-f"></i>Share</a></li>
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" href="#!"><i class="fab me-2 fa-twitter"></i>Tweet</a></li>
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link instagram" href="#!"><i class="fab me-2 fa-instagram"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://t.me/share/url?url={{ route('main.photo.index', $photo->id) }}&text=Photo '{{ $photo->name }}' by {{ $photo->user->name }}"><i class="fab me-2 fa-telegram"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('main.photo.index', $photo->id) }}"><i class="fab me-2 fa-facebook-f"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://twitter.com/intent/tweet?text={{ route('main.photo.index', $photo->id) }}"><i class="fab me-2 fa-twitter"></i>Share</a></li>
                         </ul>
                     </div>
                 </div>

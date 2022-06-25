@@ -23,7 +23,7 @@ Route::prefix('/')->group(function () {
         Route::post('{photo}/like', [\App\Http\Controllers\Main\Photo\Like\StoreController::class, 'store'])->name('photo.like.store');
     });
     Route::prefix('category')->group(function () {
-        Route::get('', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
+        Route::get('/', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
         Route::get('/{category}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
     });
     Route::prefix('user')->group(function () {

@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="m-auto">
-{{--                    {{ $photos->links() }}--}}
+                    {{ $photos->links() }}
                 </div>
             </div>
         </div><!-- /.container-fluid -->

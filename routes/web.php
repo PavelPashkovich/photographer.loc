@@ -15,27 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::prefix('/')->group(function () {
-    Route::get('', [\App\Http\Controllers\Main\IndexController::class, 'index'])->name('main.index');
-    Route::prefix('photo')->group(function () {
-        Route::get('{photo}', [\App\Http\Controllers\Main\Photo\IndexController::class, 'index'])->name('main.photo.index');
-        Route::post('{photo}/comment', [\App\Http\Controllers\Main\Photo\Comment\StoreController::class, 'store'])->name('photo.comment.store');
-        Route::post('{photo}/like', [\App\Http\Controllers\Main\Photo\Like\StoreController::class, 'store'])->name('photo.like.store');
-    });
-    Route::prefix('category')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
-        Route::get('/{category}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
-    });
-    Route::prefix('user')->group(function () {
-        Route::get('', [\App\Http\Controllers\Main\User\IndexController::class, 'index'])->name('main.user.index');
-        Route::get('/{user}', [\App\Http\Controllers\Main\User\ShowController::class, 'show'])->name('main.user.show');
-        Route::post('message', [\App\Http\Controllers\Main\User\Message\StoreController::class, 'store'])->name('main.user.message.store');
-    });
-    Route::prefix('city')->group(function () {
-        Route::get('', [\App\Http\Controllers\Main\City\IndexController::class, 'index'])->name('main.city.index');
-        Route::get('/{city}', [\App\Http\Controllers\Main\City\ShowController::class, 'show'])->name('main.city.show');
-    });
-});
+//Route::prefix('/')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Main\IndexController::class, 'index'])->name('main.index');
+//    Route::prefix('photo')->group(function () {
+        Route::get('photo/{slug}', [\App\Http\Controllers\Main\Photo\IndexController::class, 'index'])->name('main.photo.index');
+        Route::post('photo/{photo}/comment', [\App\Http\Controllers\Main\Photo\Comment\StoreController::class, 'store'])->name('photo.comment.store');
+        Route::post('photo/{photo}/like', [\App\Http\Controllers\Main\Photo\Like\StoreController::class, 'store'])->name('photo.like.store');
+//    });
+//    Route::prefix('category')->group(function () {
+        Route::get('/category', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
+        Route::get('category/{category}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
+//    });
+//    Route::prefix('user')->group(function () {
+        Route::get('user', [\App\Http\Controllers\Main\User\IndexController::class, 'index'])->name('main.user.index');
+        Route::get('user/{user}', [\App\Http\Controllers\Main\User\ShowController::class, 'show'])->name('main.user.show');
+        Route::post('user/message', [\App\Http\Controllers\Main\User\Message\StoreController::class, 'store'])->name('main.user.message.store');
+//    });
+//    Route::prefix('city')->group(function () {
+        Route::get('city', [\App\Http\Controllers\Main\City\IndexController::class, 'index'])->name('main.city.index');
+        Route::get('city/{city}', [\App\Http\Controllers\Main\City\ShowController::class, 'show'])->name('main.city.show');
+//    });
+//});
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Admin\IndexController::class, 'index'])->name('main.index');

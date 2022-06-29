@@ -11,7 +11,7 @@
                                 <div class="card mb-2 bg-gradient-dark">
                                     <img class="card-img-top" src="{{ asset('storage/'.$photo->photo) }}" alt="{{ $photo->name }}">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <a href="{{ route('main.photo.index', $photo) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
+                                        <a href="{{ route('main.photo.index', ['slug' => $photo->slug]) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
                                         <h6 class="card-text text-white pb-2">{{ $photo->category->name }}</h6>
                                         <div class="d-flex justify-content-between">
                                             <a href="{{ route('main.user.show', $photo->user->id) }}"><h6 class="text-white" style="font-size: 13px">by {{ $photo->user->name }}</h6></a>

@@ -8,7 +8,8 @@ use Carbon\Carbon;
 
 class IndexController extends Controller
 {
-    public function index(Photo $photo) {
+    public function index(string $slug) {
+        $photo = Photo::where('slug', $slug)->first();
         $date = Carbon::parse($photo->created_at);
         $comments = $photo->comments()->get();
         if ($photo->user->photos()->where('id', '!=', $photo->id)->count() >= 3) {

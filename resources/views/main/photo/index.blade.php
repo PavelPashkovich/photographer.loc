@@ -103,7 +103,7 @@
                                 <ul class="list-inline listing-tags m-0">
                                     <li class="list-inline-item"><a class="reset-anchor fw-normal text-gray text-sm" href="{{ route('main.category.show', $relatedPhoto->category) }}">{{ $relatedPhoto->category->name }}</a></li>
                                 </ul>
-                                    <a class="reset-anchor d-block listing-img-holder" href="{{ route('main.photo.index', $relatedPhoto) }}"><img class="img-fluid rounded-lg" src="{{ asset('storage/'.$relatedPhoto->photo) }}" alt="{{ $relatedPhoto->name }}">
+                                    <a class="reset-anchor d-block listing-img-holder" href="{{ route('main.photo.index', ['slug' => $relatedPhoto->slug]) }}"><img class="img-fluid rounded-lg" src="{{ asset('storage/'.$relatedPhoto->photo) }}" alt="{{ $relatedPhoto->name }}">
                                     <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
                                         <svg class="svg-icon text-primary svg-icon-sm ms-1">
                                             <use xlink:href="#arrow-right-1"> </use>
@@ -111,7 +111,7 @@
                                     </p></a>
                             </div>
                             <div class="py-3">
-                                <a class="reset-anchor" href="{{ route('main.photo.index', $relatedPhoto) }}"><h2 class="h5 listing-item-heading">{{ $relatedPhoto->name }}</h2></a>
+                                <a class="reset-anchor" href="{{ route('main.photo.index', ['slug' => $relatedPhoto->slug]) }}"><h2 class="h5 listing-item-heading">{{ $relatedPhoto->name }}</h2></a>
                             </div>
                         </div>
                     </div>

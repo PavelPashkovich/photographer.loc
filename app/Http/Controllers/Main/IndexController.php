@@ -8,6 +8,7 @@ use App\Models\Photo;
 class IndexController extends Controller
 {
     public function index() {
+
         $photos = Photo::query()->inRandomOrder()->get();
         return view('main.index', ['photos' => $photos]);
     }

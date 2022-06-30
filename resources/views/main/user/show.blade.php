@@ -11,7 +11,7 @@
                             <ul class="list-unstyled mb-0">
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">City:</h6>
-                                    <a href="{{ route('main.city.show', $user->city->id) }}"><p class="ms-3 text-muted mb-0">{{ $user->city->name }}</p></a>
+                                    <a href="{{ route('main.city.show', $user->city->slug) }}"><p class="ms-3 text-muted mb-0">{{ $user->city->name }}</p></a>
                                 </li>
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">Address:</h6>
@@ -129,7 +129,7 @@
                                     <img class="card-img-top" src="{{ asset('storage/'.$photo->photo) }}" alt="{{ $photo->name }}">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                                         <a href="{{ route('main.photo.index', ['slug' => $photo->slug]) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
-                                        <a href="{{ route('main.category.show', $photo->category->id) }}"><h6 class="card-text text-white pb-2">{{ $photo->category->name }}</h6></a>
+                                        <a href="{{ route('main.category.show', ['slug' => $photo->category->slug]) }}"><h6 class="card-text text-white pb-2">{{ $photo->category->name }}</h6></a>
                                         <div class="d-flex justify-content-between">
                                             <h6 class="text-white" style="font-size: 13px">by {{ $photo->user->name }}</h6>
                                             <div class="d-flex">

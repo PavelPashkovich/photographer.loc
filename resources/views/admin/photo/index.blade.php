@@ -44,8 +44,8 @@
                                         <h6 href="#" class="text-white">{{ $photo->created_at }}</h6>
                                         <h6 href="#" class="text-white"> by {{ $photo->user->name }}</h6>
                                         <div>
-                                            <i class="far fa-comments mr-2"> 5 </i>
-                                            <i class="far fa-heart"> 3 </i>
+                                            <i class="far fa-comments mr-2"> {{ $photo->comments->count() }} </i>
+                                            <i class="far fa-heart"> {{ $photo->likedUsers->count() }} </i>
                                         </div>
                                     </div>
                                 </div>

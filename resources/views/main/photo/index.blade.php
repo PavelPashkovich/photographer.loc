@@ -35,7 +35,7 @@
                             <ul class="list-unstyled mb-0">
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">Category:</h6>
-                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.category.show', $photo->category) }}">{{ $photo->category->name }}</a></p>
+                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.category.show', ['slug' => $photo->category->slug]) }}">{{ $photo->category->name }}</a></p>
                                 </li>
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">Date:</h6>
@@ -43,7 +43,7 @@
                                 </li>
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">City:</h6>
-                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.city.show', $photo->user->city) }}">{{ $photo->user->city->name }}</a></p>
+                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.city.show', $photo->user->city->slug) }}">{{ $photo->user->city->name }}</a></p>
                                 </li>
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">Author:</h6>
@@ -87,9 +87,9 @@
 
                         <h2 class="h3 my-4">Share</h2>
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://t.me/share/url?url={{ route('main.photo.index', $photo->id) }}&text=Photo '{{ $photo->name }}' by {{ $photo->user->name }}"><i class="fab me-2 fa-telegram"></i>Share</a></li>
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('main.photo.index', $photo->id) }}"><i class="fab me-2 fa-facebook-f"></i>Share</a></li>
-                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://twitter.com/intent/tweet?text={{ route('main.photo.index', $photo->id) }}"><i class="fab me-2 fa-twitter"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://t.me/share/url?url={{ route('main.photo.index', ['slug' => $photo->slug]) }}&text=Photo '{{ $photo->name }}' by {{ $photo->user->name }}"><i class="fab me-2 fa-telegram"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('main.photo.index', ['slug' => $photo->slug]) }}"><i class="fab me-2 fa-facebook-f"></i>Share</a></li>
+                            <li class="list-inline-item"><a class="reset-anchor social-share-link twitter" target="_blank" href="https://twitter.com/intent/tweet?text={{ route('main.photo.index', ['slug' => $photo->slug]) }}"><i class="fab me-2 fa-twitter"></i>Share</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                         <div class="listing-item ps-0">
                             <div class="position-relative">
                                 <ul class="list-inline listing-tags m-0">
-                                    <li class="list-inline-item"><a class="reset-anchor fw-normal text-gray text-sm" href="{{ route('main.category.show', $relatedPhoto->category) }}">{{ $relatedPhoto->category->name }}</a></li>
+                                    <li class="list-inline-item"><a class="reset-anchor fw-normal text-gray text-sm" href="{{ route('main.category.show', ['slug' => $relatedPhoto->category->slug]) }}">{{ $relatedPhoto->category->name }}</a></li>
                                 </ul>
                                     <a class="reset-anchor d-block listing-img-holder" href="{{ route('main.photo.index', ['slug' => $relatedPhoto->slug]) }}"><img class="img-fluid rounded-lg" src="{{ asset('storage/'.$relatedPhoto->photo) }}" alt="{{ $relatedPhoto->name }}">
                                     <p class="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
@@ -130,7 +130,7 @@
                                 <h4 class="h6 text-white">{{ $photo->user->name }}</h4>
                                 <p class="text-sm"> ({{ $photo->user->role->name }})</p>
                                 <ul class="list-unstyled text-sm mb-0 text-white">
-                                    <li class="mb-1"><a class="reset-anchor" href="{{ route('main.city.show', $photo->user->city) }}"> <i class="fas text-muted me-2 fa-fw fa-globe-americas"></i>{{ $photo->user->city->name }}</a></li>
+                                    <li class="mb-1"><a class="reset-anchor" href="{{ route('main.city.show', $photo->user->city->slug) }}"> <i class="fas text-muted me-2 fa-fw fa-globe-americas"></i>{{ $photo->user->city->name }}</a></li>
                                     <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-mobile"></i>{{ $photo->user->phone }}</a></li>
                                     <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-envelope"></i>{{ $photo->user->email }}</a></li>
                                 </ul>

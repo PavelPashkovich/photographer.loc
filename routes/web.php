@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 //    });
 //    Route::prefix('category')->group(function () {
         Route::get('/category', [\App\Http\Controllers\Main\Category\IndexController::class, 'index'])->name('main.category.index');
-        Route::get('category/{category}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
+        Route::get('category/{slug}', [\App\Http\Controllers\Main\Category\ShowController::class, 'show'])->name('main.category.show');
 //    });
 //    Route::prefix('user')->group(function () {
         Route::get('user', [\App\Http\Controllers\Main\User\IndexController::class, 'index'])->name('main.user.index');
@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 //    });
 //    Route::prefix('city')->group(function () {
         Route::get('city', [\App\Http\Controllers\Main\City\IndexController::class, 'index'])->name('main.city.index');
-        Route::get('city/{city}', [\App\Http\Controllers\Main\City\ShowController::class, 'show'])->name('main.city.show');
+        Route::get('city/{slug}', [\App\Http\Controllers\Main\City\ShowController::class, 'show'])->name('main.city.show');
 //    });
 //});
 

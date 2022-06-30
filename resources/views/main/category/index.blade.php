@@ -15,7 +15,7 @@
                                         <img class="card-img-top" src="{{ asset('storage/category.jpg') }}" alt="{{ $category->name }}">
                                     @endif
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <a href="{{ route('main.category.show', $category->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $category->name }}</strong></h4></a>
+                                        <a href="{{ route('main.category.show', ['slug' => $category->slug]) }}"><h4 class="card-title text-primary text-white"><strong>{{ $category->name }}</strong></h4></a>
                                     </div>
                                 </div>
                             </div>

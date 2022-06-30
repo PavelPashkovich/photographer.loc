@@ -15,7 +15,7 @@
                                         <img class="card-img-top" src="{{ asset('storage/city.jpg') }}" alt="{{ $city->name }}">
                                     @endif
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <a href="{{ route('main.city.show', $city->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $city->name }}</strong></h4></a>
+                                        <a href="{{ route('main.city.show', ['slug' => $city->slug]) }}"><h4 class="card-title text-primary text-white"><strong>{{ $city->name }}</strong></h4></a>
                                     </div>
                                 </div>
                             </div>

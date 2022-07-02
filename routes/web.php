@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 //    });
 //    Route::prefix('user')->group(function () {
         Route::get('user', [\App\Http\Controllers\Main\User\IndexController::class, 'index'])->name('main.user.index');
-        Route::get('user/{user}', [\App\Http\Controllers\Main\User\ShowController::class, 'show'])->name('main.user.show');
+        Route::get('user/{slug}', [\App\Http\Controllers\Main\User\ShowController::class, 'show'])->name('main.user.show');
         Route::post('user/message', [\App\Http\Controllers\Main\User\Message\StoreController::class, 'store'])->name('main.user.message.store');
 //    });
 //    Route::prefix('city')->group(function () {

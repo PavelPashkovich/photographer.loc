@@ -11,7 +11,7 @@
                                 <div class="card mb-2 bg-gradient-dark">
                                         <img class="card-img-top" src="{{ asset('storage/'.$user->avatar) }}" alt="{{ $user->name }}">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <a href="{{ route('main.user.show', $user->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $user->name }}</strong></h4></a>
+                                        <a href="{{ route('main.user.show', $user->slug) }}"><h4 class="card-title text-primary text-white"><strong>{{ $user->name }}</strong></h4></a>
                                     </div>
                                 </div>
                             </div>

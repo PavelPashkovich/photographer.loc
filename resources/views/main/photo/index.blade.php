@@ -47,7 +47,7 @@
                                 </li>
                                 <li class="d-flex mb-2">
                                     <h6 class="mb-0">Author:</h6>
-                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.user.show', $photo->user) }}">{{ $photo->user->name }}</a></p>
+                                    <p class="ms-3 text-muted mb-0"><a class="reset-anchor me-1" href="{{ route('main.user.show', $photo->user->slug) }}">{{ $photo->user->name }}</a></p>
                                 </li>
                             </ul>
                         </div>

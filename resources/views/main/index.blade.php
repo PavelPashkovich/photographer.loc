@@ -14,7 +14,7 @@
                                         <a href="{{ route('main.photo.index', ['slug' => $photo->slug]) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
                                         <a href="{{ route('main.category.show', $photo->category->slug) }}"><h6 class="card-text text-white pb-2">{{ $photo->category->name }}</h6></a>
                                         <div class="d-flex justify-content-between">
-                                            <a href="{{ route('main.user.show', $photo->user->id) }}"><h6 class="text-white" style="font-size: 13px">by {{ $photo->user->name }}</h6></a>
+                                            <a href="{{ route('main.user.show', $photo->user->slug) }}"><h6 class="text-white" style="font-size: 13px">by {{ $photo->user->name }}</h6></a>
                                             <div class="d-flex">
                                                 @guest()
                                                     <div >

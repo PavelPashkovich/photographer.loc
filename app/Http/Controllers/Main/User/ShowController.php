@@ -7,8 +7,8 @@ use App\Models\User;
 
 class ShowController extends Controller
 {
-    public function show($id) {
-        $user = User::find($id);
+    public function show(string $slug) {
+        $user = User::where('slug', $slug)->first();
         $photos = $user->photos;
         return view('main.user.show', ['photos' => $photos, 'user' => $user]);
     }

@@ -18,22 +18,39 @@
     <link rel="shortcut icon" href="{{ asset('minimal-theme/img/favicon.png') }}">
 </head>
 <body>
+{{--@dd($_SERVER)--}}
 <div class="sidebar">
     <div class="sidebar-inner d-flex flex-column">
         <div class="px-4 py-5"><a href="{{ route('main.index') }}"><img src="{{ asset('minimal-theme/img/logo.svg') }}" alt="" width="90"></a></div>
         <div class="sidebar-menu-holder flex-grow-1">
             <ul class="sidebar-menu list-unstyled">
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.index') }}">Home</a>
+                    @if($_SERVER['REQUEST_URI'] == "/")
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.index') }}">Home</a>
+                    @else
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.index') }}">Home</a>
+                    @endif
                 </li>
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.category.index') }}">Categories</a>
+                    @if($_SERVER['REQUEST_URI'] == "/category")
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.category.index') }}">Categories</a>
+                    @else
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.category.index') }}">Categories</a>
+                    @endif
                 </li>
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.user.index') }}">Photographers</a>
+                    @if($_SERVER['REQUEST_URI'] == "/user")
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.user.index') }}">Photographers</a>
+                    @else
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.user.index') }}">Photographers</a>
+                    @endif
                 </li>
                 <li class="mb-2 pb-1">
-                    <!-- Link--><a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.city.index') }}">Cities</a>
+                    @if($_SERVER['REQUEST_URI'] == "/city")
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active" href="{{ route('main.city.index') }}">Cities</a>
+                    @else
+                    <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('main.city.index') }}">Cities</a>
+                    @endif
                 </li>
             </ul>
         </div>
@@ -109,7 +126,7 @@
 <script src="{{ asset('minimal-theme/vendor/masonry-layout/masonry.pkgd.min.js') }}"></script>
 <script src="{{ asset('minimal-theme/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 <script src="{{ asset('minimal-theme/vendor/glightbox/js/glightbox.min.js') }}"></script>
-<script src="{{ asset('minimal-theme/js/front.js')}}"></script>
+<script src="js/front.js"></script>
 <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -

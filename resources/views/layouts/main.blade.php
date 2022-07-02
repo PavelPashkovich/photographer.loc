@@ -109,7 +109,7 @@
 <script src="{{ asset('minimal-theme/vendor/masonry-layout/masonry.pkgd.min.js') }}"></script>
 <script src="{{ asset('minimal-theme/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 <script src="{{ asset('minimal-theme/vendor/glightbox/js/glightbox.min.js') }}"></script>
-<script src="js/front.js"></script>
+<script src="{{ asset('minimal-theme/js/front.js')}}"></script>
 <script>
     // ------------------------------------------------------- //
     //   Inject SVG Sprite -

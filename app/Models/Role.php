@@ -12,6 +12,9 @@ class Role extends Model
     protected $table = 'roles';
     protected $guarded = false;
 
+    const ROLE_ADMIN = 'Admin';
+    const ROLE_PHOTOGRAPHER = 'Photographer';
+
     public function users() {
         return $this->hasMany(User::class, 'role_id', 'id');
     }

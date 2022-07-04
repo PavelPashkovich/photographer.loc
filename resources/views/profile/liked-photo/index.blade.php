@@ -35,13 +35,13 @@
                                         <img class="card-img-top" src="{{ asset('storage/'.$likedPhoto->photo) }}" alt="{{ $likedPhoto->name }}">
                                         <div class="card-img-overlay d-flex flex-column justify-content-end">
                                             <a href="{{ route('profile.liked-photo.show', $likedPhoto->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $likedPhoto->name }}</strong></h4></a>
-                                            <h6 class="card-text text-white pb-2 pt-1">{{ $likedPhoto->category->name }}</h6>
+                                            <a href="{{ route('main.category.show', ['slug' => $likedPhoto->category->slug]) }}" class="card-text text-white pb-2 pt-1">{{ $likedPhoto->category->name }}</a>
                                             <div class="d-flex justify-content-between">
                                                 <h6 href="#" class="text-white">{{ $likedPhoto->created_at }}</h6>
-                                                <h6 href="#" class="text-white"> by {{ $likedPhoto->user->name }}</h6>
+                                                <a href="{{ route('main.user.show', ['slug' => $likedPhoto->user->slug]) }}" class="text-white"> by {{ $likedPhoto->user->name }}</a>
                                                 <div>
-                                                    <i class="far fa-comments mr-2"> 5 </i>
-                                                    <i class="far fa-heart"> 3 </i>
+                                                    <i class="far fa-comments mr-2"> {{ $likedPhoto->comments->count() }} </i>
+                                                    <i class="far fa-heart"> {{ $likedPhoto->likedUsers->count() }} </i>
                                                 </div>
                                             </div>
                                         </div>

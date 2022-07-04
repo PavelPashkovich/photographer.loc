@@ -40,8 +40,8 @@
                                 </form>
                           <a href="{{ route('admin.comment.edit', $comment) }}" class="float-right btn-tool" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                         </span>
-                                <span class="description">left comment to photo <a href="{{ route('main.photo.index', $comment->photo->id) }}"><b>{{ $comment->photo->name }}</b></a> by <a
-                                        href="{{ route('main.user.show', $comment->photo->user->id) }}"><i>{{ $comment->photo->user->name }}</i></a> - {{ $comment->created_at }}</span>
+                                <span class="description">left comment to photo <a href="{{ route('main.photo.index', $comment->photo->slug) }}"><b>{{ $comment->photo->name }}</b></a> by <a
+                                        href="{{ route('main.user.show', $comment->photo->user->slug) }}"><i>{{ $comment->photo->user->name }}</i></a> - {{ $comment->created_at }}</span>
                             </div>
                             <!-- /.user-block -->
                             <p>{{ $comment->comment }}</p>

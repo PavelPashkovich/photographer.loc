@@ -1,12 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Main\City;
+namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
 
-class ShowController extends Controller
+class CityController extends Controller
 {
+    public function index() {
+        $cities = City::all();
+        return view('main.city.index', ['cities' => $cities]);
+    }
+
     public function show(string $slug) {
         $city = City::where('slug', $slug)->first();
         $users = $city->users;

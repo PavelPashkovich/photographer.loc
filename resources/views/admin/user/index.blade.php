@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right d-flex justify-content-end">
-                                            <a href="{{ route('main.user.show', $user) }}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-user"></i> View Profile </a>
+                                            <a href="{{ route('main.user.show', $user->slug) }}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-user"></i> View Profile </a>
                                             <a href="#" class="btn btn-sm bg-teal mr-2"><i class="fas fa-comments"></i></a>
                                             <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-sm bg-cyan mr-2"><i class="far fa-edit" title="Edit"></i></a>
                                             <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
-    public function store(StoreCommentRequest $request, Photo $photo) {
+    public function store(StoreCommentRequest $request, string $slug) {
+        $photo = Photo::where('slug', $slug)->first();
         $data = $request->validated();
         $data['photo_id'] = $photo->id;
         $data['user_id'] = auth()->user()->id;
@@ -19,6 +20,6 @@ class StoreController extends Controller
         $comment = Comment::create($data);
         $commentMessage = $comment->comment;
         Mail::to($email)->send(new SendPhotoCommentEmail($photo, $commentMessage));
-        return redirect()->route('main.photo.index', $photo);
+        return redirect()->route('main.photo.index', $photo->slug);
     }
 }

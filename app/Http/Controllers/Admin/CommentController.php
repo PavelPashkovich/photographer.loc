@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Comment\UpdateCommentRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -69,9 +70,11 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        $data = $request->validated();
+        $comment->update($data);
+        return redirect()->back();
     }
 
     /**

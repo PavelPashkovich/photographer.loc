@@ -38,8 +38,8 @@
                                         <button type="submit" class="float-right btn-tool btn bg-transparent" title="Delete"><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 </span>
-                                <span class="description">left comment to photo <a href="{{ route('main.photo.index', $comment->photo->id) }}}"><b>{{ $comment->photo->name }}</b></a>
-                                    by <a href="{{ route('main.user.show', $comment->user) }}"><i>{{ $comment->photo->user->name }}</i></a> - {{ $comment->created_at }}</span>
+                                <span class="description">left comment to photo <a href="{{ route('main.photo.index', ['slug' => $comment->photo->slug]) }}"><b>{{ $comment->photo->name }}</b></a>
+                                    by <a href="{{ route('main.user.show', $comment->photo->user->slug) }}"><i>{{ $comment->photo->user->name }}</i></a> - {{ $comment->created_at }}</span>
                             </div>
                             <!-- /.user-block -->
                             <p>{{ $comment->comment }}</p>

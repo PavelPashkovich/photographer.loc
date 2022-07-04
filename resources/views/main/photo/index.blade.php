@@ -13,7 +13,7 @@
                             @if(!($photo->user->id == auth()->user()->id))
                             <div>
                                 <div>
-                                    <form action="{{ route('photo.like.store', $photo) }}" method="post">
+                                    <form action="{{ route('photo.like.store', $photo->slug) }}" method="post">
                                         @csrf
                                         <button  class="text-black border-0 bg-transparent">
                                             @if(auth()->user()->likedPhotos->contains($photo->id))
@@ -59,7 +59,7 @@
                             <div class="user-block">
                                 <img class="img-circle img-bordered-sm" src="{{ asset('storage/'.$comment->user->avatar) }}" width="40px" height="40px" style="margin-right: 6px; border-radius: 50%" alt="User avatar">
                                 <span class="username">
-                                    <a href="{{ route('main.user.show', $comment->user) }}"><b>{{ $comment->user->name }}</b></a>
+                                    <a href="{{ route('main.user.show', $comment->user->slug) }}"><b>{{ $comment->user->name }}</b></a>
                                 </span>
                                 <span class="description" style="font-size: small">left this comment {{ $comment->getDateCreatedAt()->diffForHumans() }}</span>
                             </div>
@@ -68,7 +68,7 @@
                             <hr>
                             @endforeach
                             @auth()
-                            <form class="form-horizontal" style="margin-top: 30px" action="{{ route('photo.comment.store', $photo) }}" method="post">
+                            <form class="form-horizontal" style="margin-top: 30px" action="{{ route('photo.comment.store', $photo->slug) }}" method="post">
                                 @csrf
                                 <div class="input-group input-group-sm mb-0">
                                     <input class="form-control form-control-sm" placeholder="Your comment here" name="comment">

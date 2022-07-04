@@ -39,7 +39,7 @@
                                 <img class="card-img-top" src="{{ asset('storage/'.$photo->photo) }}" alt="{{ $photo->name }}">
                                 <div class="card-img-overlay d-flex flex-column justify-content-end">
                                     <a href="{{ route('profile.photo.show', $photo->id) }}"><h4 class="card-title text-primary text-white"><strong>{{ $photo->name }}</strong></h4></a>
-                                    <h6 class="card-text text-white pb-2 pt-1">{{ $photo->category->name }}</h6>
+                                    <a href="{{ route('main.category.show', ['slug' => $photo->category->slug]) }}" class="card-text text-white pb-2 pt-1">{{ $photo->category->name }}</a>
                                     <div class="d-flex justify-content-between">
                                         <h6 class="text-white">{{ $photo->created_at }}</h6>
                                         <div>

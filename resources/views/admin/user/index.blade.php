@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="col-5 text-center">
                                                 @if(isset($user->avatar) && !empty($user->avatar))
-                                                    <img src="{{ asset('storage/'.$user->avatar) }}" alt="user-avatar" class="img-circle img-fluid w-75">
+                                                    <img src="@if(isset($user->avatar)){{ asset('storage/'.$user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="user-avatar" class="img-circle img-fluid w-75">
                                                 @else
                                                     <img src="{{ asset('storage/avatars/noavatar.jpg') }}" alt="user-avatar" class="img-circle img-fluid w-75">
                                                 @endif

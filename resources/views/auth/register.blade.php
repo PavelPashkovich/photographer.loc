@@ -61,7 +61,22 @@
                             </div>
                         </div>
                     </div>
-                    <input id="role_id" type="hidden" class="form-control" name="role_id" value="{{ \App\Models\User::USER_PHOTOGRAPHER }}">
+                    <div class="input-group mb-3">
+                        <select name="city_id" class="form-control">
+                            {{ $cities = \App\Models\City::all() }}
+                            @if(isset($cities) && !empty($cities))
+                            @foreach($cities as $city)
+                                <option>{{ $city->name }}</option>
+                            @endforeach
+                            @endif
+                        </select>
+{{--                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">--}}
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-map-marker-alt"></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">

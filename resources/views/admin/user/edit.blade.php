@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <div class="w-50 mb-2">
-                                <img src="{{ url('storage/' . $user->avatar) }}" alt="User avatar" class="w-50">
+                                <img src="@if(isset($user->avatar)){{ asset('storage/' . $user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User avatar" class="w-50">
                             </div>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="avatar">

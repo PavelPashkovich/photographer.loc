@@ -66,7 +66,7 @@
                             {{ $cities = \App\Models\City::all() }}
                             @if(isset($cities) && !empty($cities))
                             @foreach($cities as $city)
-                                <option>{{ $city->name }}</option>
+                                <option value="{{ $city->id }}">{{ $city->name }}</option>
                             @endforeach
                             @endif
                         </select>

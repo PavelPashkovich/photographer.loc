@@ -57,7 +57,7 @@
                         <div class="post clearfix">
                             @foreach($comments as $comment)
                             <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="{{ asset('storage/'.$comment->user->avatar) }}" width="40px" height="40px" style="margin-right: 6px; border-radius: 50%" alt="User avatar">
+                                <img class="img-circle img-bordered-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" width="40px" height="40px" style="margin-right: 6px; border-radius: 50%" alt="User avatar">
                                 <span class="username">
                                     <a href="{{ route('main.user.show', $comment->user->slug) }}"><b>{{ $comment->user->name }}</b></a>
                                 </span>

@@ -46,7 +46,7 @@
                 </div>
                 @auth()
                     <li class="list-inline-item w-25">
-                        <form class="form-horizontal" style="margin-top: 30px" action="{{ route('main.user.message.store') }}" method="post">
+                        <form class="form-horizontal" style="margin-top: 30px" action="{{ route('main.user.message.store', $user->slug) }}" method="post">
                             @csrf
                             <div class="input-group input-group-sm mb-0">
                                 <input class="form-control form-control-sm" placeholder="Write me a message" name="user-message">

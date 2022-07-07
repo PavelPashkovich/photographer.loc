@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Main\Photo\Comment\StoreCommentRequest;
+use App\Jobs\SendPhotoCommentEmailJob;
 use App\Mail\SendPhotoCommentEmail;
 use App\Models\Comment;
 use App\Models\Photo;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -34,10 +36,11 @@ class PhotoController extends Controller
         $data = $request->validated();
         $data['photo_id'] = $photo->id;
         $data['user_id'] = auth()->user()->id;
-        $email = $photo->user->email;
+        $user = User::find(auth()->user()->id);
         $comment = Comment::create($data);
         $commentMessage = $comment->comment;
-        Mail::to($email)->send(new SendPhotoCommentEmail($photo, $commentMessage));
+        SendPhotoCommentEmailJob::dispatch($photo, $commentMessage, $user);
+
         return redirect()->route('main.photo.index', $photo->slug);
     }
 

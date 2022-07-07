@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 //    Route::prefix('user')->group(function () {
         Route::get('user', [\App\Http\Controllers\Main\UserController::class, 'index'])->name('main.user.index');
         Route::get('user/{slug}', [\App\Http\Controllers\Main\UserController::class, 'show'])->name('main.user.show');
-        Route::post('user/message', [\App\Http\Controllers\Main\UserController::class, 'storeMessage'])->name('main.user.message.store');
+        Route::post('user/{slug}/message', [\App\Http\Controllers\Main\UserController::class, 'storeMessage'])->name('main.user.message.store');
 //    });
 //    Route::prefix('city')->group(function () {
         Route::get('city', [\App\Http\Controllers\Main\CityController::class, 'index'])->name('main.city.index');

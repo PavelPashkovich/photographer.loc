@@ -22,13 +22,13 @@ class SendUserMessageEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($userMessage, $user)
+    public function __construct($message, $userReceiver, $userSender)
     {
-        $this->userName = $user->name;
-        $this->messageAuthor = auth()->user()->name;
-        $this->userMessage = $userMessage;
-        $this->messageUserId = auth()->user()->id;
-        $this->messageAuthorEmail = auth()->user()->email;
+        $this->userName = $userReceiver->name;
+        $this->messageAuthor = $userSender->name;
+        $this->userMessage = $message;
+        $this->messageUserId = $userSender->slug;
+        $this->messageAuthorEmail = $userSender->email;
     }
 
     /**

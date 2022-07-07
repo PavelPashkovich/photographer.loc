@@ -49,6 +49,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    const USER_ADMIN = 1;
+    const USER_PHOTOGRAPHER = 2;
+
     /**
      * Return the sluggable configuration array for this model.
      *

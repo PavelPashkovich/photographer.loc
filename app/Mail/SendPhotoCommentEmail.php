@@ -23,14 +23,14 @@ class SendPhotoCommentEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($photo, $commentMessage)
+    public function __construct($photo, $commentMessage, $user)
     {
         $this->photoAuthorName = $photo->user->name;
-        $this->messageAuthor = auth()->user()->name;
+        $this->messageAuthor = $user->name;
         $this->photoName = $photo->name;
         $this->commentMessage = $commentMessage;
-        $this->photoId = $photo->id;
-        $this->commentUserId = auth()->user()->id;
+        $this->photoId = $photo->slug;
+        $this->commentUserId = $user->slug;
     }
 
     /**

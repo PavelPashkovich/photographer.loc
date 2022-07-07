@@ -59,7 +59,7 @@
                 <ul class="sidebar-menu list-unstyled">
                     <li class="mb-2 pb-1">
                         @auth()
-                            @if(auth()->user()->role->name == 'Admin')
+                            @if(isset(auth()->user()->role->name) && auth()->user()->role->name == 'Admin')
                                 <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('admin.main.index') }}">Admin</a>
                             @else
                                 <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('profile.main.index') }}">Profile</a>

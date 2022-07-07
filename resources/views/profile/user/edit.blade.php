@@ -12,10 +12,10 @@
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div class="widget-user-header bg-info">
                             <h3 class="widget-user-username">{{ $user->name }}</h3>
-                            <h5 class="widget-user-desc">{{ $user->role->name }}</h5>
+                            <h5 class="widget-user-desc">@if(isset($user->role->name)){{ $user->role->name }}@else{{ \App\Models\Role::ROLE_PHOTOGRAPHER }}@endif</h5>
                         </div>
                         <div class="widget-user-image">
-                            <img class="img-circle elevation-2" src="{{ asset('storage/'.$user->avatar) }}" alt="User Avatar">
+                            <img class="img-circle elevation-2" src="@if(isset($user->avatar)){{ asset('storage/'.$user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Avatar">
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -97,7 +97,7 @@
                                         <select name="city_id" class="form-control">
                                             @foreach($cities as $city)
                                                 <option value="{{ $city->id }}"
-                                                        @if($city->id == $user->city->id)
+                                                        @if(isset($user->city->id) && $city->id == $user->city->id)
                                                         selected
                                                 @else
                                                     @endif

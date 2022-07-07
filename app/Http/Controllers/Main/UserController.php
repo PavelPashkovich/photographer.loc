@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Main\User\Message\StoreMessageRequest;
+use App\Jobs\SendUserMessageEmailJob;
 use App\Mail\SendUserMessageEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
@@ -21,12 +22,13 @@ class UserController extends Controller
         return view('main.user.show', ['photos' => $photos, 'user' => $user]);
     }
 
-    public function storeMessage(StoreMessageRequest $request) {
+    public function storeMessage(StoreMessageRequest $request, string $slug) {
         $data = $request->validated();
-        $userMessage = $data['user-message'];
-        $user = User::query()->find($data['user_id']);
-        $email = $user->email;
-        Mail::to($email)->send(new SendUserMessageEmail($userMessage, $user));
-        return redirect()->back();
+        $message = $data['user-message'];
+        $userReceiver = User::query()->where('slug', $slug)->first();
+        $userSender = User::find(auth()->user()->id);
+        SendUserMessageEmailJob::dispatch($message, $userReceiver, $userSender);
+
+        return redirect()->route('main.user.show', $userReceiver->slug);
     }
 }

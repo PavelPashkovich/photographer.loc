@@ -19,7 +19,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    @if($likedPhotos->count() > 0)
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -60,6 +60,7 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    @endif
 </div>
 <!-- /.content-wrapper -->
 @endsection

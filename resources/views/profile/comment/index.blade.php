@@ -19,7 +19,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    @if($comments->count() > 0)
     <!-- Main content -->
     <div class="col-md-6">
         <div class="card">
@@ -57,6 +57,7 @@
         <!-- /.card -->
     </div>
     <!-- /.content -->
+    @endif
 </div>
 <!-- /.content-wrapper -->
 @endsection

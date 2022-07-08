@@ -30,6 +30,7 @@
                 </div>
                 <!-- ./col -->
             </div>
+            @if($photos->count() > 0)
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
@@ -57,6 +58,7 @@
                     {{ $photos->links() }}
                 </div>
             </div>
+            @endif
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

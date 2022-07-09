@@ -45,6 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if($roles->count() > 0)
                                 @foreach($roles as $role)
                                 <tr>
                                     <td>{{ $role->id }}</td>
@@ -65,6 +66,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

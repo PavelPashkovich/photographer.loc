@@ -6,6 +6,7 @@
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
+                        @if($users->count() > 0)
                         @foreach($users as $user)
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="card mb-2 bg-gradient-dark">
@@ -16,6 +17,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

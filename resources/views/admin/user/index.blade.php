@@ -37,6 +37,7 @@
 
                     <div class="card-body pb-0">
                         <div class="row">
+                            @if($users->count() > 0)
                             @foreach($users as $user)
                             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                                 <div class="card bg-light d-flex flex-fill">
@@ -78,6 +79,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                     </div>
 

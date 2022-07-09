@@ -6,6 +6,7 @@
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
+                        @if($categories->count() > 0)
                         @foreach($categories as $category)
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="card mb-2 bg-gradient-dark">
@@ -20,6 +21,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

@@ -45,6 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if($categories->count() > 0)
                                 @foreach($categories as $category)
                                 <tr>
                                     <td>{{ $category->id }}</td>
@@ -65,6 +66,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

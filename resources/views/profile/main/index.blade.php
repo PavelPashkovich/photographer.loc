@@ -29,7 +29,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{ $photosCount }}</h3>
+                            <h3>{{ $photosCount ?? 0 }}</h3>
 
                             <p>Photos</p>
                         </div>
@@ -44,7 +44,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $likesCount }}</h3>
+                            <h3>{{ $likesCount ?? 0 }}</h3>
 
                             <p>Liked photos</p>
                         </div>
@@ -59,7 +59,7 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{ $commentsCount }}</h3>
+                            <h3>{{ $commentsCount ?? 0 }}</h3>
 
                             <p>Comments</p>
                         </div>

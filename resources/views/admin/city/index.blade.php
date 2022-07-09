@@ -45,6 +45,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if($cities->count() > 0)
                                 @foreach($cities as $city)
                                 <tr>
                                     <td>{{ $city->id }}</td>
@@ -65,6 +66,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

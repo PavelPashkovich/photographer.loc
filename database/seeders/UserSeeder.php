@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
             'name' => 'Pavel Pashkovich',
             'email' => 'pashkovich.pavel@gmail.com',
             'password' => Hash::make(12345678),
-            'city_id' => 5,
-            'role_id' => 1,
+//            'city_id' => 5,
+//            'role_id' => 1,
         ]);
     }
 }

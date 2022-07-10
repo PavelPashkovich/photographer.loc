@@ -71,6 +71,8 @@
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
+            @else
+                <h3 style="text-align: center">В данной категории пока нет фотографий!</h3>
             @endif
         </div>
     </div>

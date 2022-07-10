@@ -4,7 +4,7 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ route('main.index') }}" class="h2"><b>{{ config('app.name', 'Home') }}</b></a>
+                <a href="{{ route('main.index') }}"><img src="{{ asset('minimal-theme/img/logo.svg') }}" alt="" width="90"></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>

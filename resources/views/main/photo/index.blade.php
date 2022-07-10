@@ -93,7 +93,6 @@
                         </ul>
                     </div>
                 </div>
-                @if($relatedPhotos > 0)
                 <h3 class="h3 mb-4">More photos of {{ $photo->user->name }}</h3>
 
                 <div class="row gy-4 gx-5">
@@ -118,7 +117,6 @@
                     </div>
                     @endforeach
                 </div>
-                @endif
 
             </div>
         </div>

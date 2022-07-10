@@ -61,6 +61,7 @@
                         @auth()
                             @if(isset(auth()->user()->role->name) && auth()->user()->role->name == 'Admin')
                                 <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('admin.main.index') }}">Admin</a>
+                                <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('profile.main.index') }}">Profile</a>
                             @else
                                 <a class="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm" href="{{ route('profile.main.index') }}">Profile</a>
                             @endif

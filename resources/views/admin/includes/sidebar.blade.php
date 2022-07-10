@@ -8,7 +8,7 @@
                 <img src="@if(isset(auth()->user()->avatar)){{ asset('storage/'.auth()->user()->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">@if(isset(auth()->user()->name)){{ auth()->user()->name }}@endif</a>
+                <a href="{{ route('admin.user.edit', auth()->user()->id) }}" class="d-block">@if(isset(auth()->user()->name)){{ auth()->user()->name }}@endif</a>
             </div>
         </div>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

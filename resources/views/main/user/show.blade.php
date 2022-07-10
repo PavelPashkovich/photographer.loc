@@ -42,7 +42,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-sm-3"><img class="img-fluid img-thumbnail rounded-circle" src="{{ asset('storage/'.$user->avatar) }}" alt="{{ $user->name }}"></div>
+                    <div class="col-sm-3"><img class="img-fluid img-thumbnail rounded-circle" src="@if(isset($user->avatar)){{ asset('storage/'.$user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="{{ $user->name }}"></div>
                 </div>
                 @auth()
                     <li class="list-inline-item w-25">

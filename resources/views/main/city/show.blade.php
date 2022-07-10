@@ -18,10 +18,7 @@
                                 </div>
                             </div>
                         @endforeach
-                        @else
-                            @guest
-                            <h3 style="text-align: center">Станьте первым фотографом из города {{ $city->name }}, <a href="http://photographer.loc/register">зарегистрируйтесь</a>!</h3>
-                            @endguest
+
 
                     </div>
                 </div>
@@ -29,6 +26,10 @@
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
+            @else
+                @guest
+                    <h3 style="text-align: center">Станьте первым фотографом из города {{ $city->name }}, <a href="http://photographer.loc/register">зарегистрируйтесь</a>!</h3>
+                @endguest
             @endif
         </div>
     </div>

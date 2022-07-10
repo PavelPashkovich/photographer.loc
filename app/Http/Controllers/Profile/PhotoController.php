@@ -42,7 +42,7 @@ class PhotoController extends Controller
     public function store(StorePhotoRequest $request)
     {
         $data = $request->validated();
-        $data['photo'] = Storage::disk('public')->put('/photos', $data['photo']);
+        $data['photo'] = Storage::disk('public')->putFile('/photos', $data['photo']);
         Photo::query()->create($data);
         return redirect()->route('profile.photo.index');
     }

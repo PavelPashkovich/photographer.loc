@@ -34,7 +34,7 @@ class StorePhotoRequest extends FormRequest
                 'required',
                 'mimes:tiff,jpg,bmp,png',
                 'file',
-//                'max:8120'
+                'max:5120'
             ],
             'category_id' => [
                 'required',

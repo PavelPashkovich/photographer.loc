@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'pashkovich.pavel@gmail.com',
             'password' => Hash::make(12345678),
             'city_id' => 5,
-            'role_id' => 7,
+            'role_id' => 9,
         ]);
     }
 }

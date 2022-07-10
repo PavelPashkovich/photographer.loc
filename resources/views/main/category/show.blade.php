@@ -3,7 +3,6 @@
 <div class="px-4 py-5" style="min-height: calc(100vh - 69.609px)">
     <div class="container-fluid">
         <div class="row gy-4 gx-5 masonry-wrapper">
-            @if($photos > 0)
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
@@ -31,7 +30,7 @@
                                                     <i class="far fa-comments text-white"> {{ $photo->comments->count() }} </i>
                                                 </div>
                                                 <div>
-                                                    <form action="{{ route('photo.like.store', $photo->slug) }}" method="post">
+                                                    <form action="{{ route('photo.like.store', $photo) }}" method="post">
                                                         @csrf
                                                         <button  class="text-white border-0 bg-transparent">
                                                             @if(auth()->user()->likedPhotos->contains($photo->id))
@@ -71,9 +70,6 @@
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
-            @else
-                <h3 style="text-align: center">В данной категории пока нет фотографий :(</h3>
-            @endif
         </div>
     </div>
 </div>

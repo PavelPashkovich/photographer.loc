@@ -66,7 +66,11 @@
                             {{ $cities = \App\Models\City::all() }}
                             @if(isset($cities) && !empty($cities))
                             @foreach($cities as $city)
+                                @if($city->name == 'Minsk')
+                                <option selected='selected' value="{{ $city->id }}">{{ $city->name }}</option>
+                                @else
                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                @endif
                             @endforeach
                             @endif
                         </select>

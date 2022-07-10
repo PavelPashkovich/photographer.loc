@@ -3,10 +3,10 @@
 <div class="px-4 py-5">
     <div class="container-fluid">
         <div class="row gy-4 gx-5 masonry-wrapper" style="min-height: calc(100vh - 69.609px)">
+            @if($photos->count() > 0)
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
-                        @if($photos->count() > 0)
                         @foreach($photos as $photo)
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="card mb-2 bg-gradient-dark">
@@ -65,13 +65,13 @@
                                 </div>
                             </div>
                         @endforeach
-                        @endif
                     </div>
                 </div>
 {{--                <div class="mx-auto">--}}
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
+            @endif
         </div>
     </div>
 </div>

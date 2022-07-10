@@ -65,7 +65,7 @@
                     <div class="card-footer card-comments">
                         <div class="card-comment">
                             <!-- User image -->
-                            <img class="img-circle img-sm" src="{{ asset('storage/'.$comment->user->avatar) }}" alt="User Image">
+                            <img class="img-circle img-sm" src="{{ asset('storage/'.$comment->user->avatar) ?? asset('storage/avatars/noavatar.jpg') }}" alt="User Image">
 
                             <div class="comment-text">
                                 <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>

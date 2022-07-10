@@ -31,7 +31,7 @@
                                                     <i class="far fa-comments text-white"> {{ $photo->comments->count() }} </i>
                                                 </div>
                                                 <div>
-                                                    <form action="{{ route('photo.like.store', $photo) }}" method="post">
+                                                    <form action="{{ route('photo.like.store', $photo->slug) }}" method="post">
                                                         @csrf
                                                         <button  class="text-white border-0 bg-transparent">
                                                             @if(auth()->user()->likedPhotos->contains($photo->id))

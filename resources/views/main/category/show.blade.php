@@ -3,6 +3,7 @@
 <div class="px-4 py-5" style="min-height: calc(100vh - 69.609px)">
     <div class="container-fluid">
         <div class="row gy-4 gx-5 masonry-wrapper">
+            @if($photos->count() > 0)
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
@@ -70,6 +71,7 @@
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
+            @endif
         </div>
     </div>
 </div>

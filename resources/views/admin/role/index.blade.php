@@ -30,6 +30,7 @@
                 </div>
                 <!-- ./col -->
             </div>
+            @if($roles->count() > 0)
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -45,7 +46,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if($roles->count() > 0)
+
                                 @foreach($roles as $role)
                                 <tr>
                                     <td>{{ $role->id }}</td>
@@ -66,7 +67,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                @endif
+
                                 </tbody>
                             </table>
                         </div>
@@ -75,6 +76,7 @@
                     <!-- /.card -->
                 </div>
             </div>
+            @endif
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>

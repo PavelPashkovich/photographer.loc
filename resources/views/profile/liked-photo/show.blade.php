@@ -37,7 +37,7 @@
             <div class="card card-widget">
                 <div class="card-header">
                     <div class="user-block">
-                        <img class="img-circle" src="{{ asset('storage/'.$likedPhoto->user->avatar) ?? asset('storage/avatars/noavatar.jpg') }}" alt="User Image">
+                        <img class="img-circle" src="@if(isset($likedPhoto->user->avatar)){{ asset('storage/'.$likedPhoto->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
                         <span class="username text-danger">{{ $likedPhoto->user->name }}</span>
                         <span class="description">Shared publicly - {{ $likedPhoto->created_at }}</span>
                     </div>
@@ -60,11 +60,12 @@
                         </div>
                     </span>
                 </div>
+                @if($comments->count() > 0)
                 @foreach($comments as $comment)
                     <div class="card-footer card-comments">
                         <div class="card-comment">
                             <!-- User image -->
-                            <img class="img-circle img-sm" src="{{ asset('storage/'.$comment->user->avatar) ?? asset('storage/avatars/noavatar.jpg') }}" alt="User Image">
+                            <img class="img-circle img-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
 
                             <div class="comment-text">
                                 <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>
@@ -76,6 +77,7 @@
                         <!-- /.card-comment -->
                     </div>
                 @endforeach
+                @endif
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->

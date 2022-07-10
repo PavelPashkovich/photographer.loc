@@ -54,6 +54,11 @@ Route::middleware(['auth'])->prefix('profile')->name('profile.')->group(function
     ]);
 });
 
+Route::get('show-city-photo', function () {
+    $city = \App\Models\City::query()->first();
+    dd($city->users->first()->photos->first()->photo);
+});
+
 
 
 

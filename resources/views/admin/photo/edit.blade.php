@@ -30,8 +30,8 @@
                     <div class="card card-widget">
                         <div class="card-header">
                             <div class="user-block">
-                                <img class="img-circle" src="@if(isset($photo->user->avatar)){{ asset('storage/'.$photo->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
-                                <span class="username"><a href="{{ route('main.user.show', $photo->user->slug) }}">{{ $photo->user->name }}</a></span>
+                                <img class="img-circle" src="{{ asset('storage/'.$photo->user->avatar) }}" alt="User Image">
+                                <span class="username"><a href="#">{{ $photo->user->name }}</a></span>
                                 <span class="description">Shared publicly - {{ $photo->created_at }}</span>
                             </div>
                             <!-- /.user-block -->
@@ -55,21 +55,22 @@
                         </div>
                         <!-- /.card-body -->
                         @foreach($comments as $comment)
-                            <div class="card-footer card-comments">
-                                <div class="card-comment">
-                                    <!-- User image -->
-                                    <img class="img-circle img-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
+                        <div class="card-footer card-comments">
+                            <div class="card-comment">
+                                <!-- User image -->
+                                <img class="img-circle img-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
 
-                                    <div class="comment-text">
-                                        <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>
-                                        {{ $comment->comment }}
-                                    </div>
-                                    <!-- /.comment-text -->
+                                <div class="comment-text">
+                                    <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>
+                                    {{ $comment->comment }}
                                 </div>
-                                <hr>
-                                <!-- /.card-comment -->
+                                <!-- /.comment-text -->
                             </div>
+                            <hr>
+                            <!-- /.card-comment -->
+                        </div>
                         @endforeach
+                    </div>
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->

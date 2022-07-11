@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendRegistrationEmailJob;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,6 +65,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $name = $data['name'];
+        $email = $data['email'];
+        $password = $data['password'];
+        SendRegistrationEmailJob::dispatch($name, $email, $password);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

@@ -67,9 +67,9 @@
                         @endforeach
                     </div>
                 </div>
-{{--                <div class="mx-auto">--}}
-{{--                    {{ $photos->links() }}--}}
-{{--                </div>--}}
+                <div class="mx-auto">
+                    {{ $photos->links() }}
+                </div>
             </div>
             @endif
         </div>

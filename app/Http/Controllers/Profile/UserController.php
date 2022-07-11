@@ -7,6 +7,7 @@ use App\Http\Requests\Profile\User\UpdateUserRequest;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -74,6 +75,9 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
+        if (isset($data['avatar']) && !empty($data['avatar'])) {
+            $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
+        }
         $user->update($data);
         return redirect()->route('profile.main.index');
     }

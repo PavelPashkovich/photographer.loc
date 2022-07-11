@@ -29,7 +29,7 @@
                         <!-- Post -->
                         <div class="post clearfix">
                             <div class="user-block">
-                                <img class="img-circle img-sm" src="{{ asset('storage/'.$comment->user->avatar) }}" alt="User Image">
+                                <img class="img-circle img-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
                                 <span class="username">
                                     <span class="text-danger">{{ $comment->user->name }}</span>
                                     <form action="{{ route('admin.comment.destroy', $comment) }}" method="post">

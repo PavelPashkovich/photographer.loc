@@ -45,6 +45,7 @@
                     <div class="col-sm-3"><img class="img-fluid img-thumbnail rounded-circle" src="@if(isset($user->avatar)){{ asset('storage/'.$user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="{{ $user->name }}"></div>
                 </div>
                 @auth()
+                    @if(auth()->user()->id !== $user->id)
                     <li class="list-inline-item w-25">
                         <form class="form-horizontal" style="margin-top: 30px" action="{{ route('main.user.message.store', $user->slug) }}" method="post">
                             @csrf
@@ -64,6 +65,7 @@
                             @enderror
                         </form>
                     </li>
+                    @endif
                 @endauth
             </div>
             <div class="px-lg-5">

@@ -14,7 +14,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cities')->insert([
+        DB::table('categories')->insert([
             [
                 'name' => 'Landscape',
                 'slug' => 'landscape',

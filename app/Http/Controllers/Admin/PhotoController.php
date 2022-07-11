@@ -57,7 +57,8 @@ class PhotoController extends Controller
     public function show(Photo $photo)
     {
         $users = User::all();
-        return view('admin.photo.show', ['photo' => $photo, 'users' => $users]);
+        $comments = $photo->comments;
+        return view('admin.photo.show', ['photo' => $photo, 'users' => $users, 'comments' => $comments]);
     }
 
     /**

@@ -44,27 +44,39 @@
                     </div>
                     <!-- /.user-block -->
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" title="Mark as read">
-                            <i class="far fa-circle"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <div class="text-black-50 mr-2">
+                            <i class="fas fa-camera"></i>
+                        </div>
                     </div>
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <img class="img-fluid pad" src="{{ asset('storage/'.$photo->photo) }}" alt="Photo">
-
-                    <p>I took this photo this morning. What do you guys think?</p>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                    <span class="float-right text-muted">127 likes - 3 comments</span>
+                    <p></p>
+                    <span class="float-right text-muted">
+                        <div class="d-flex justify-content-between">
+                            <div class="mr-2"><i class="far fa-heart"></i> {{ $photo->likedUsers->count() }}</div>
+                            <div><i class="far fa-comments"></i> {{ $photo->comments->count() }}</div>
+                        </div>
+                    </span>
                 </div>
+                @foreach($comments as $comment)
+                    <div class="card-footer card-comments">
+                        <div class="card-comment">
+                            <!-- User image -->
+                            <img class="img-circle img-sm" src="@if(isset($comment->user->avatar)){{ asset('storage/'.$comment->user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="User Image">
+
+                            <div class="comment-text">
+                                <span class="username text-danger">{{ $comment->user->name }}<span class="text-muted float-right">{{ $comment->created_at }}</span></span>
+                                {{ $comment->comment }}
+                            </div>
+                            <!-- /.comment-text -->
+                        </div>
+                        <hr>
+                        <!-- /.card-comment -->
+                    </div>
+                @endforeach
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->

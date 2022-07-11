@@ -69,8 +69,9 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
+        $comments = $photo->comments;
         $categories = Category::all();
-        return view('admin.photo.edit', ['photo' => $photo, 'categories' => $categories]);
+        return view('admin.photo.edit', ['photo' => $photo, 'categories' => $categories, 'comments' => $comments]);
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-    <div class="px-4 py-5">
+    <div class="px-4 py-5" style="min-height: calc(100vh - 69.609px)">
         <div class="container-fluid">
             <div class="p-5 mb-5 bg-light">
                 <div class="row gy-3">
@@ -191,7 +191,7 @@
 {{--                </div>--}}
             </div>
             @else
-                <h3 style="text-align: center">Пользователь пока не добавил ни одной фотографии.</h3>
+                <h3 style="text-align: center">Здесь пока нет фотографий.</h3>
             @endif
         </div>
     </div>

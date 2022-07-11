@@ -30,7 +30,7 @@
                             @endauth
                         </div>
 
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+{{--                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--}}
                         <div class="p-4 bg-light mb-3">
                             <ul class="list-unstyled mb-0">
                                 <li class="d-flex mb-2">
@@ -120,71 +120,71 @@
 
             </div>
         </div>
-        <footer class="text-muted" style="background: #0d0d0d">
-            <div class="container-fluid py-5">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="row gy-4">
-                            <div class="col-lg-4">
-                                <h2 class="h4 text-white mb-4">About me</h2>
-                                <h4 class="h6 text-white">{{ $photo->user->name }}</h4>
-                                <p class="text-sm"> ({{ $photo->user->role->name }})</p>
-                                <ul class="list-unstyled text-sm mb-0 text-white">
-                                    <li class="mb-1"><a class="reset-anchor" href="{{ route('main.city.show', $photo->user->city->slug) }}"> <i class="fas text-muted me-2 fa-fw fa-globe-americas"></i>{{ $photo->user->city->name }}</a></li>
-                                    <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-mobile"></i>{{ $photo->user->phone }}</a></li>
-                                    <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-envelope"></i>{{ $photo->user->email }}</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <h2 class="h4 text-white mb-4">Follow me</h2>
-                                <ul class="list-inline">
-                                    <div class="row text-white text-sm">
-                                        <div class="col-6">
-                                            <ul class="list-unstyled">
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-facebook-f"></i>Facebook</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-twitter"></i>Twitter</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-instagram"></i>Instagram</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-dribbble"></i>Dribbble</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <ul class="list-unstyled">
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-linkedin-in"></i>Linkedin</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-pinterest"></i>Pinterest</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-vimeo"></i>Vimeo</a></li>
-                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-youtube"></i>Youtube</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4">
-                                <h2 class="h4 text-white mb-4">News</h2>
-                                <ul class="list-unstyled mb-0">
-                                    <li><a class="reset-anchor" href="#!">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-1.jpg') }}" alt="Design is all" width="50"></div>
-                                                <div class="ms-3">
-                                                    <p class="text-white mb-0">Design is all</p>
-                                                    <p class="small mb-1"></p>
-                                                    <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                                                </div>
-                                            </div></a></li>
-                                    <li><a class="reset-anchor" href="#!">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-2.jpg') }}" alt="Power is art" width="50"></div>
-                                                <div class="ms-3">
-                                                    <p class="text-white mb-0">Power is art</p>
-                                                    <p class="small mb-1">23 Dec 2019</p>
-                                                    <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-                                                </div>
-                                            </div></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+{{--        <footer class="text-muted" style="background: #0d0d0d">--}}
+{{--            <div class="container-fluid py-5">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-lg-10 mx-auto">--}}
+{{--                        <div class="row gy-4">--}}
+{{--                            <div class="col-lg-4">--}}
+{{--                                <h2 class="h4 text-white mb-4">About me</h2>--}}
+{{--                                <h4 class="h6 text-white">{{ $photo->user->name }}</h4>--}}
+{{--                                <p class="text-sm"> ({{ $photo->user->role->name }})</p>--}}
+{{--                                <ul class="list-unstyled text-sm mb-0 text-white">--}}
+{{--                                    <li class="mb-1"><a class="reset-anchor" href="{{ route('main.city.show', $photo->user->city->slug) }}"> <i class="fas text-muted me-2 fa-fw fa-globe-americas"></i>{{ $photo->user->city->name }}</a></li>--}}
+{{--                                    <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-mobile"></i>{{ $photo->user->phone }}</a></li>--}}
+{{--                                    <li class="mb-1"><a class="reset-anchor" href="#!"> <i class="fas text-muted me-2 fa-fw fa-envelope"></i>{{ $photo->user->email }}</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-4">--}}
+{{--                                <h2 class="h4 text-white mb-4">Follow me</h2>--}}
+{{--                                <ul class="list-inline">--}}
+{{--                                    <div class="row text-white text-sm">--}}
+{{--                                        <div class="col-6">--}}
+{{--                                            <ul class="list-unstyled">--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-facebook-f"></i>Facebook</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-twitter"></i>Twitter</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-instagram"></i>Instagram</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-dribbble"></i>Dribbble</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-6">--}}
+{{--                                            <ul class="list-unstyled">--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-linkedin-in"></i>Linkedin</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-pinterest"></i>Pinterest</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-vimeo"></i>Vimeo</a></li>--}}
+{{--                                                <li><a class="reset-anchor" href="#!"><i class="fab me-2 mb-2 fa-fw fa-youtube"></i>Youtube</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-4">--}}
+{{--                                <h2 class="h4 text-white mb-4">News</h2>--}}
+{{--                                <ul class="list-unstyled mb-0">--}}
+{{--                                    <li><a class="reset-anchor" href="#!">--}}
+{{--                                            <div class="d-flex">--}}
+{{--                                                <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-1.jpg') }}" alt="Design is all" width="50"></div>--}}
+{{--                                                <div class="ms-3">--}}
+{{--                                                    <p class="text-white mb-0">Design is all</p>--}}
+{{--                                                    <p class="small mb-1"></p>--}}
+{{--                                                    <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>--}}
+{{--                                                </div>--}}
+{{--                                            </div></a></li>--}}
+{{--                                    <li><a class="reset-anchor" href="#!">--}}
+{{--                                            <div class="d-flex">--}}
+{{--                                                <div class="flex-shrink-0"><img class="rounded-circle" src="{{ asset('minimal-theme/img/news-2.jpg') }}" alt="Power is art" width="50"></div>--}}
+{{--                                                <div class="ms-3">--}}
+{{--                                                    <p class="text-white mb-0">Power is art</p>--}}
+{{--                                                    <p class="small mb-1">23 Dec 2019</p>--}}
+{{--                                                    <p class="text-gray text-sm">Lorem ipsum dolor sit amet, consetetur sadipscing.</p>--}}
+{{--                                                </div>--}}
+{{--                                            </div></a></li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </footer>--}}
 
 @endsection

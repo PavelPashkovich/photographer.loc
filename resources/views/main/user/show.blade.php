@@ -27,20 +27,20 @@
                                 </li>
                             </ul>
                         </div>
-                        <p class="text-muted mb-4">About me: </p>
-                        <ul class="list-inline mb-0">
+{{--                        <p class="text-muted mb-4">About me: </p>--}}
+{{--                        <ul class="list-inline mb-0">--}}
 
-                            <li class="list-inline-item my-2">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-dribbble"></i></a></li>
-                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>
-                                </ul>
-                            </li>
-                        </ul>
+{{--                            <li class="list-inline-item my-2">--}}
+{{--                                <ul class="list-inline mb-0">--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-facebook-f"></i></a></li>--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-twitter"></i></a></li>--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-instagram"></i></a></li>--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-linkedin"></i></a></li>--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fab fa-dribbble"></i></a></li>--}}
+{{--                                    <li class="list-inline-item"><a class="reset-anchor" href="#!"><i class="fas fa-envelope"></i></a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
                     </div>
                     <div class="col-sm-3"><img class="img-fluid img-thumbnail rounded-circle" src="@if(isset($user->avatar)){{ asset('storage/'.$user->avatar) }}@else{{ asset('storage/avatars/noavatar.jpg') }}@endif" alt="{{ $user->name }}"></div>
                 </div>
@@ -120,6 +120,7 @@
 <div class="px-4 py-2">
     <div class="container-fluid">
         <div class="row gy-4 gx-5 masonry-wrapper">
+            @if($photos->count() > 0)
             <div class="card card-success">
                 <div class="card-body">
                     <div class="row">
@@ -187,6 +188,9 @@
 {{--                    {{ $photos->links() }}--}}
 {{--                </div>--}}
             </div>
+            @else
+                <h3 style="text-align: center">Пользователь пока не добавил ни одной фотографии.</h3>
+            @endif
         </div>
     </div>
 </div>

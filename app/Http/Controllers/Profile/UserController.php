@@ -79,7 +79,9 @@ class UserController extends Controller
         if (isset($data['avatar']) && !empty($data['avatar'])) {
             $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
         }
-        $data['password'] = Hash::make($data['password']);
+        if (isset($data['password']) && !empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        }
         $user->update($data);
         return redirect()->route('profile.main.index');
     }

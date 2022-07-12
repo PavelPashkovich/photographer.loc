@@ -54,7 +54,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="User password *" value="{{ $user->password }}">
+                            <input type="password" class="form-control" name="password" placeholder="User password *">
                             @error('password')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

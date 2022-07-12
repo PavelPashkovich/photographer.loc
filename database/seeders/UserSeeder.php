@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Pavel Pashkovich',
                 'slug' => 'pavel-pashkovich',
-                'email' => 'pashkovich.pavel@gmail.com',
-                'password' => Hash::make(12345678),
+                'email' => env('ADMIN_LOGIN'),
+                'password' => Hash::make(env('ADMIN_PASSWORD')),
                 'city_id' => 5,
                 'role_id' => 1,
             ],

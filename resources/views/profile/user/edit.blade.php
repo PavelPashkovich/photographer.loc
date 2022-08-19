@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="User password *">
+                                        <input type="password" class="form-control" name="password" placeholder="Confirm password or enter new password *">
                                         @error('password')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
